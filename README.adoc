@@ -1,0 +1,71 @@
+= urltool(1)
+Noel Cower
+v0.1.0
+:doctype: manpage
+:manmanual: URLTOOL
+:mansource: URLTOOL
+:man-linkstyle: pass:[blue R < >]
+
+== Name
+
+urltool - modify URLs from the command line
+
+
+== Synopsis
+
+*urltool* [_-h|-help_] _<url>_... [_modifier_...]
+
+== Description
+
+urltool is a small tool to parse and optionally modify URLs from the command
+line.
+
+If urltool encounters an invalid URL, it will exit with status 1 after writing
+an error message to standard error. urltool may print partial results in the
+case of an error.
+
+== Options
+*-h*, *-help*::
+	Print this help text.
+
+== Modifiers
+
+*-nh*[=_true|false_]::
+	Disable URL parsing hacks (domain.tld and user:bar@domain.tld parsing).
+*-s* _SCHEME_::
+	Set the URL's scheme.
+*-o* _OPAQUE_::
+	set the URL's opaque value.
+*-u* _USER_::
+	Set the URL's username.
+*-pw* _PASSWD_::
+	Set the URL's password.
+*-U*[=_true|false_]::
+	Strip user info from the URL.
+*-H* _HOST_::
+	Set the URL's host.
+*-P* _PORT_::
+	Change the URL's host port (after taking the host from -H).
+*-p* _PATH_::
+	Set the URL's path (or join to it).
+*-j*[=_true|false_]::
+	Force joining the URL's path instead of setting it when relative.
+*-fq*[=_true|false_]::
+	Force a '?' to appear in the URL.
+*-sq*[=_true|false_]::
+	Strip query string before appending to it.
+*-q* _K=V_::
+	Append a ?K=V value to the query string. May be repeated. If no '='
+	is found, an empty ?K= is added.
+*-f* _FRAGMENT_::
+	Set the URL's #fragment.
+*-r* _URI_::
+	Parse a URL relative to the input URL and use the result (after all
+	other modifiers).
+
+== Reporting Issues
+If you encounter a bug in urltool, or want to request a feature or something
+else, please open an issue on the project website if one doesn’t already exist:
+<https://github.com/nilium/urltool>.
+
+You can also submit pull requests through the project site.
